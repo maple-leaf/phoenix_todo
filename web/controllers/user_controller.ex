@@ -13,7 +13,7 @@ defmodule PhoenixTodo.UserController do
 
     def create(conn, data) do
         user = User.changeset(%User{}, data)
-        #user = User.changeset(%User{}, %{name: "xxx", todos: [%PhoenixTodo.Todo{}]})
+        Repo.insert(user)
         json conn, user
     end
 end
