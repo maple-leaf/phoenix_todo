@@ -13,7 +13,9 @@ defmodule PhoenixTodo.UserController do
 
     def create(conn, data) do
         user = User.changeset(%User{}, data)
-        Repo.insert(user)
-        json conn, user
+        {:ok, u} = Repo.insert(user)
+        u1 = u |> Repo.preload(:todos)
+        json conn, %{ id: u1 |> Map.get(:id) }
+        #json conn, u1
     end
 end

@@ -1,7 +1,7 @@
 defmodule PhoenixTodo.User do
   use PhoenixTodo.Web, :model
 
-  @derive {Poison.Encoder, only: [:name, :email, :bio, :todos]}
+  @derive {Poison.Encoder, only: [:id, :name, :email, :bio, :todos]}
 
   schema "users" do
     field :name, :string
