@@ -19,7 +19,9 @@ defmodule PhoenixTodo.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name])
-    |> validate_required([])
+    |> cast(params, [:name, :email])
+    |> validate_required([:name, :email, :bio])
+    |> validate_length(:name, min: 2, max: 100)
+    |> validate_length(:email, min: 10, max: 100)
   end
 end

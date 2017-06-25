@@ -36,6 +36,7 @@ defmodule PhoenixTodo.Web do
 
       import PhoenixTodo.Router.Helpers
       import PhoenixTodo.Gettext
+      import PhoenixTodo.Controller.Helpers
     end
   end
 
